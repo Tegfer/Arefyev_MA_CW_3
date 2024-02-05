@@ -33,14 +33,15 @@ def operations_pick():
 
 def date_form(date):
     date = date.split('T')[0].split('-')
-    return f'{2}.{1}.{0}'
+    return f'{date[2]}.{date[1]}.{date[0]}'
 
 
 def mask_card(card_dt):
     card_dt = card_dt.split(" ")
-    return f'{card_dt[-1][:4]}{card_dt[-1][4:6], "** **** ", {card_dt[-1][:-14]}}'
+    masked_card = card_dt[-1][:4], card_dt[-1][4:6]+"** ****", card_dt[-1][12:]
+    return f"{' '.join(masked_card)}"
 
 
-def mask_bill(bill_dt):
-    bill_dt = bill_dt.split
-    return f'**{bill_dt[-1][-5:]}'
+def mask_bill(to):
+    bill_dt = to.split(" ")
+    return f'**{bill_dt[-1][-4:]}'
